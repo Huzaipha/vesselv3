@@ -46,9 +46,11 @@ class _SplashStateTwo extends State<splashTwo> {
                   _showButton = true;
                 } else if (_initial == 2.0) {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => EnterPhoneNumber()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EnterPhoneNumber(),
+                    ),
+                  );
                   // _showNextButton = true;
                 }
               } else {

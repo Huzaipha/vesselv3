@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, unused_import, use_key_in_widget_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:vesselv3/Screens/HomeOwner/JobRequest/CategorySelection.dart';
 import 'package:vesselv3/Screens/HomeOwner/Services/SeeAllServices.dart';
 import 'package:vesselv3/Screens/HomeOwner/OwnerProfile.dart';
 import 'package:vesselv3/routes/route.dart';
@@ -59,7 +60,6 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
     LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         // -------------------------------------shorcuts-------------------------------------
-        String? selectCategory;
         final categoryDecoratin = BoxDecoration(
           border: Border.all(),
           borderRadius: BorderRadius.circular(10),
@@ -186,15 +186,23 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    height: MediaQuery.of(context).size.height * 0.09,
-                    decoration: categoryDecoratin,
-                    child: Center(
-                        child: Text(
-                      "Carpenter",
-                      style: normTextStyle,
-                    )),
+                  MaterialButton(
+                    onPressed: () {
+                      PageRouting.goToNextPage(
+                        context: context,
+                        navigateTo: selectCategory(),
+                      );
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.09,
+                      decoration: categoryDecoratin,
+                      child: Center(
+                          child: Text(
+                        "Carpenter",
+                        style: normTextStyle,
+                      )),
+                    ),
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.15,

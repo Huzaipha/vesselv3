@@ -143,10 +143,7 @@ class _WorkerProfileState extends State<WorkerProfile> {
                     SizedBox(
                       height: 5,
                     ),
-                    Text(
-                      "Settings",
-                      style: decorationText
-                    ),
+                    Text("Settings", style: decorationText),
                   ],
                 ),
               ),
@@ -294,17 +291,20 @@ class _WorkerProfileState extends State<WorkerProfile> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 218, 219, 206),
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20))),
         backgroundColor: Color(0xFF0A1D56),
-        title: Center(
-          child: Text(
-            "Profile",
-            style: TextStyle(
-              fontFamily: "Lato",
-              color: Colors.white,
-              fontSize: 15,
-            ),
+        title: Text(
+          "Profile",
+          style: TextStyle(
+            fontFamily: "Lato",
+            color: Colors.white,
+            fontSize: 15,
           ),
         ),
+        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {},

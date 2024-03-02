@@ -309,17 +309,20 @@ class _ServiceRequestState extends State<ServiceRequest>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20))),
         backgroundColor: Color(0xFF0A1D56),
-        title: Center(
-          child: Text(
-            "Service Requests",
-            style: TextStyle(
-                color: Colors.white,
-                fontFamily: "Lato",
-                fontWeight: FontWeight.bold,
-                fontSize: 14),
-          ),
+        title: Text(
+          "Service Requests",
+          style: TextStyle(
+              color: Colors.white,
+              fontFamily: "Lato",
+              fontWeight: FontWeight.bold,
+              fontSize: 14),
         ),
+        centerTitle: true,
       ),
       body: Center(
         child: ListView(
