@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, unused_import, use_key_in_widget_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:vesselv3/Screens/HomeOwner/JobRequest/CategorySelection.dart';
+import 'package:flutter/widgets.dart';
+import 'package:vesselv3/Screens/HomeOwner/Selection/CategorySelection.dart';
 import 'package:vesselv3/Screens/HomeOwner/Services/SeeAllServices.dart';
 import 'package:vesselv3/Screens/HomeOwner/OwnerProfile.dart';
 import 'package:vesselv3/routes/route.dart';
@@ -186,12 +187,10 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  MaterialButton(
-                    onPressed: () {
+                  GestureDetector(
+                    onTap: () {
                       PageRouting.goToNextPage(
-                        context: context,
-                        navigateTo: selectCategory(),
-                      );
+                          context: context, navigateTo: selectCategory());
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.15,
@@ -204,38 +203,53 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                       )),
                     ),
                   ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    height: MediaQuery.of(context).size.height * 0.09,
-                    decoration: categoryDecoratin,
-                    child: Center(
-                        child: Text(
-                      "Plumber",
-                      style: normTextStyle,
-                    )),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    height: MediaQuery.of(context).size.height * 0.09,
-                    decoration: categoryDecoratin,
-                    child: Center(
-                        child: Text(
-                      "Painter",
-                      style: normTextStyle,
-                    )),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    height: MediaQuery.of(context).size.height * 0.09,
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(10),
+                  GestureDetector(
+                    onTap: () {
+                      PageRouting.goToNextPage(
+                          context: context, navigateTo: selectCategory());
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.09,
+                      decoration: categoryDecoratin,
+                      child: Center(
+                          child: Text(
+                        "Plumber",
+                        style: normTextStyle,
+                      )),
                     ),
-                    child: Center(
-                        child: Text(
-                      "Electritian",
-                      style: normTextStyle,
-                    )),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      PageRouting.goToNextPage(
+                          context: context, navigateTo: selectCategory());
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.09,
+                      decoration: categoryDecoratin,
+                      child: Center(
+                          child: Text(
+                        "Painter",
+                        style: normTextStyle,
+                      )),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      PageRouting.goToNextPage(
+                          context: context, navigateTo: selectCategory());
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.09,
+                      decoration: categoryDecoratin,
+                      child: Center(
+                          child: Text(
+                        "Electricain",
+                        style: normTextStyle,
+                      )),
+                    ),
                   ),
                 ],
               ),

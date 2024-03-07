@@ -4,8 +4,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:vesselv3/Screens/HomeOwner/JobRequest/Tabs/firstTab.dart';
-import 'package:vesselv3/Screens/HomeOwner/JobRequest/Tabs/secondTab.dart';
+import 'package:vesselv3/Screens/HomeOwner/JobRequest/Tabs/about.dart';
+import 'package:vesselv3/Screens/HomeOwner/JobRequest/Tabs/reviews.dart';
 
 class WorkerSelection extends StatefulWidget {
   @override
