@@ -23,7 +23,7 @@ class _SeeAllServicesState extends State<SeeAllServices> {
       fontSize: 18,
       color: Colors.black);
   // ------------------------------------------------------------------------------
-  final normTextStyle = TextStyle(fontFamily: "Lato", fontSize: 14);
+  final normTextStyle = TextStyle(fontFamily: "Lato", fontSize: 10);
 
   // ------------------------------------------------------------------------------
   final categoryDecoratin = BoxDecoration(
@@ -66,7 +66,7 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
+                          width: MediaQuery.of(context).size.width * 0.2,
                           height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color:
@@ -87,7 +87,7 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
+                          width: MediaQuery.of(context).size.width * 0.2,
                           height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color: _carpenter == "Furniture Installation"
@@ -109,7 +109,7 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                        width: MediaQuery.of(context).size.width * 0.15,
+                        width: MediaQuery.of(context).size.width * 0.2,
                         height: MediaQuery.of(context).size.height * 0.09,
                         decoration: BoxDecoration(
                           color: _carpenter == "Cabinet Installation"
@@ -159,8 +159,8 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color: _plumber == "Repairing" ? Colors.blue : null,
                             border: Border.all(),
@@ -179,8 +179,8 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color: _plumber == "Pipe Installation"
                                 ? Colors.blue
@@ -201,8 +201,8 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color: _plumber == "Other" ? Colors.blue : null,
                             border: Border.all(),
@@ -245,8 +245,8 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color:
                                 _Painter == "Full House" ? Colors.blue : null,
@@ -266,8 +266,8 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color: _Painter == "One Room" ? Colors.blue : null,
                             border: Border.all(),
@@ -286,8 +286,8 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color: _Painter == "Outside" ? Colors.blue : null,
                             border: Border.all(),
@@ -330,8 +330,8 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color: _Electrician == "House Wiring"
                                 ? Colors.blue
@@ -352,8 +352,8 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color: _Electrician == "Repairing"
                                 ? Colors.blue
@@ -374,8 +374,8 @@ class _SeeAllServicesState extends State<SeeAllServices> {
                         });
                       },
                       child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.09,
                           decoration: BoxDecoration(
                             color: _Electrician == "Other" ? Colors.blue : null,
                             border: Border.all(),

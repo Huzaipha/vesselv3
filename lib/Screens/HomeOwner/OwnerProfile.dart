@@ -10,21 +10,25 @@ class OwnerProfile extends StatefulWidget {
 }
 
 class _OwnerProfileState extends State<OwnerProfile> {
+  // --------------------shortcut------------------------------
   final decorationBox = BoxDecoration(
       color: Colors.white,
       border: Border.all(color: Colors.white),
       borderRadius: BorderRadius.circular(5));
+ // -----------------------------------------------------------
   final decorationText = TextStyle(
     fontWeight: FontWeight.bold,
     fontFamily: "Lato",
-    fontSize: 15,
+    fontSize: 10,
   );
+  // ----------------------------------------------------
   final listTextStyle = TextStyle(
     color: Colors.black,
     fontFamily: "Lato",
     fontSize: 14,
     fontWeight: FontWeight.bold,
   );
+  // --------------------shortcut------------------------------
   Widget NameRating() {
     return Container(
       padding: EdgeInsets.all(20),
@@ -43,7 +47,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
                       style: TextStyle(
                         fontFamily: "Lato",
                         fontWeight: FontWeight.bold,
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     )
                   ],
@@ -91,7 +95,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
 
   Widget HelpSetting() {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.only(left: 20, right: 20),
       child: Column(
         children: [
           Row(

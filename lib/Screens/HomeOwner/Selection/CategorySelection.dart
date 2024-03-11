@@ -41,7 +41,7 @@ class _selectCategoryState extends State<selectCategory> {
             child: Container(
               margin: EdgeInsets.only(bottom: 20),
               width: MediaQuery.of(context).size.width * 1.0,
-              height: 70,
+              height: MediaQuery.of(context).size.width * 0.25,
               decoration: decorations,
               child: Container(
                 margin: EdgeInsets.only(

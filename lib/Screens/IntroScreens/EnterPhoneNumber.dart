@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vesselv3/SVG/svg.dart';
-import 'package:vesselv3/Screens/TypeScreen.dart';
+import 'package:vesselv3/Screens/IntroScreens/TypeScreen.dart';
 import 'package:vesselv3/Widgets/textfield.dart';
 import 'package:vesselv3/routes/route.dart';
 

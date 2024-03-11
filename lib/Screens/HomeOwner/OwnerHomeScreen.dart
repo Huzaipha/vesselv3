@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:vesselv3/Screens/HomeOwner/Selection/CategorySelection.dart';
+import 'package:vesselv3/Screens/HomeOwner/Selection/WorkerSelection.dart';
 import 'package:vesselv3/Screens/HomeOwner/Services/SeeAllServices.dart';
 import 'package:vesselv3/Screens/HomeOwner/OwnerProfile.dart';
 import 'package:vesselv3/routes/route.dart';
@@ -95,13 +96,13 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontFamily: "Lato",
-            fontSize: 15);
+            fontSize: 10);
         // ----------------------------------------------------------------------------
         final smallTextStyle = TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontFamily: "Lato",
-            fontSize: 12);
+            fontSize: 11);
         // -------------------------------------shorcuts-------------------------------------
         return Column(
           children: [
@@ -193,7 +194,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                           context: context, navigateTo: selectCategory());
                     },
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.15,
+                      width: MediaQuery.of(context).size.width * 0.2,
                       height: MediaQuery.of(context).size.height * 0.09,
                       decoration: categoryDecoratin,
                       child: Center(
@@ -209,7 +210,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                           context: context, navigateTo: selectCategory());
                     },
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.15,
+                      width: MediaQuery.of(context).size.width * 0.2,
                       height: MediaQuery.of(context).size.height * 0.09,
                       decoration: categoryDecoratin,
                       child: Center(
@@ -225,7 +226,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                           context: context, navigateTo: selectCategory());
                     },
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.15,
+                      width: MediaQuery.of(context).size.width * 0.2,
                       height: MediaQuery.of(context).size.height * 0.09,
                       decoration: categoryDecoratin,
                       child: Center(
@@ -241,7 +242,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                           context: context, navigateTo: selectCategory());
                     },
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.15,
+                      width: MediaQuery.of(context).size.width * 0.2,
                       height: MediaQuery.of(context).size.height * 0.09,
                       decoration: categoryDecoratin,
                       child: Center(
@@ -277,7 +278,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.4,
               child: ListView.separated(
                 separatorBuilder: (BuildContext context, int index) => SizedBox(
                   width: 20,
@@ -290,7 +291,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                       // Starts from Here
                       Container(
                         margin: EdgeInsets.only(left: 10),
-                        width: MediaQuery.of(context).size.width * 0.35,
+                        width: MediaQuery.of(context).size.width * 0.6,
                         decoration: gradientDecoration,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -341,11 +342,15 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                               ),
                             ),
                             Container(
-                              height: MediaQuery.of(context).size.height * 0.05,
+                              height: MediaQuery.of(context).size.height * 0.07,
                               decoration: BookNowDecoration,
                               child: Center(
                                   child: TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        PageRouting.goToNextPage(
+                                            context: context,
+                                            navigateTo: WorkerSelection());
+                                      },
                                       child: Text(
                                         "Book Now",
                                         style: TextStyle(

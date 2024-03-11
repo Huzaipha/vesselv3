@@ -48,7 +48,11 @@ class _LocationAccessState extends State<LocationAccess> {
               ),
               MaterialButton(
                 onPressed: () {
-                  _showModal(context);
+                  try {
+                    _showModal(context);
+                  } catch (e) {
+                    print('Exception occurred: $e');
+                  }
                 },
                 child: Container(
                   margin: EdgeInsets.only(top: 20, bottom: 10),
