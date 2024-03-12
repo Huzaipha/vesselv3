@@ -78,6 +78,7 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
             ],
           ),
         ),
+        // ----------------------------------ADS--------------------------------
         SizedBox(
           height: 150,
           // color: Colors.green,
@@ -95,7 +96,13 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                     height: 100,
                     width: 350,
                     decoration: BoxDecoration(
-                      border: Border.all(),
+                      boxShadow: [
+                        BoxShadow(
+                            spreadRadius: 4,
+                            blurStyle: BlurStyle.outer,
+                            blurRadius: 6,
+                            color: Colors.grey)
+                      ],
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: Column(
@@ -116,7 +123,7 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
           height: 10,
         ),
 
-        //current Task
+        //--------------------------------current Task--------------------------
         Container(
           margin: EdgeInsets.only(left: 10, right: 10, bottom: 5),
           child: Row(
@@ -303,7 +310,7 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
           ),
         ),
 
-        // Service Request
+        // ----------------------------Service Request--------------------------
         Container(
           margin: EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 20),
           child: Row(

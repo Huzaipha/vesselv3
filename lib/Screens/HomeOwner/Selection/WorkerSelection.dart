@@ -1,11 +1,11 @@
-// This page will have the worker's information and book now button after you select the worker from CategorySelection page.
-
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:vesselv3/Screens/HomeOwner/JobRequest/Tabs/about.dart';
 import 'package:vesselv3/Screens/HomeOwner/JobRequest/Tabs/reviews.dart';
+import 'package:vesselv3/Screens/HomeOwner/JobRequest/bookWorker/bookWorker.dart';
+import 'package:vesselv3/routes/route.dart';
 
 class WorkerSelection extends StatefulWidget {
   @override
@@ -13,20 +13,22 @@ class WorkerSelection extends StatefulWidget {
 }
 
 class WWorkerSelectionState extends State<WorkerSelection> {
+  // This page will have the worker's information and book now button after you 
+  // select the worker from CategorySelection page.
   
-  // -----------------shortcuts------------------------------------
+  // ------------------------------shortcuts------------------------------------
   final otherTextStyle = TextStyle(
     color: Colors.white,
     fontFamily: "Lato",
     fontSize: 10,
   );
-  // --------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   final TextStyletwo = TextStyle(
       color: Colors.black,
       fontFamily: "Lato",
       fontSize: 14,
       fontWeight: FontWeight.bold);
-  // -----------------shortcuts------------------------------------
+  // ------------------------------shortcuts------------------------------------
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +106,10 @@ class WWorkerSelectionState extends State<WorkerSelection> {
                 ),
               ),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  PageRouting.goToNextPage(
+                  context: context, navigateTo: bookWorker());
+                },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.05,

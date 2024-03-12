@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_animated_icons/lottiefiles.dart';
+import 'package:lottie/lottie.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 
 class bookWorker extends StatefulWidget {
@@ -11,7 +13,23 @@ class bookWorker extends StatefulWidget {
   State<bookWorker> createState() => _bookWorkerState();
 }
 
-class _bookWorkerState extends State<bookWorker> {
+class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
+  late AnimationController _bellController;
+
+  @override
+  void initState() {
+    _bellController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3))
+          ..repeat();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bellController.dispose();
+    super.dispose();
+  }
+
   String? locationadress = "Select Your Location";
   TimeOfDay _timeOfDay = TimeOfDay.now();
 
@@ -274,7 +292,80 @@ class _bookWorkerState extends State<bookWorker> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    showModalBottomSheet(
+                      backgroundColor: Colors.white,
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.4,
+                          width: MediaQuery.of(context).size.height * 1.0,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "_______",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "Are You Sure",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Lato",
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                              IconButton(
+                                color: Colors.green,
+                                onPressed: () {
+                                  if (_bellController.isAnimating) {
+                                    // _bellController.stop();
+                                    _bellController.reset();
+                                  } else {
+                                    _bellController.repeat();
+                                  }
+                                },
+                                icon: Lottie.asset(
+                                  LottieFiles
+                                      .$89782_done_icon_with_long_drop_shadow,
+                                  controller: _bellController,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.2,
+                                ),
+                              ),
+                              MaterialButton(
+                                onPressed: () {
+                                  _showModal(context);
+                                },
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.035,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.90,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF0A1D56),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(4)),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Continue",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: "Lato",
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
                   child: Container(
                     margin: EdgeInsets.only(right: 30),
                     width: MediaQuery.of(context).size.width * 0.3,

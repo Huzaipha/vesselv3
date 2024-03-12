@@ -61,12 +61,12 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
     //For Home
     LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        // -------------------------------------shorcuts-------------------------------------
+        // -------------------------------------shorcuts------------------------
         final categoryDecoratin = BoxDecoration(
           border: Border.all(),
           borderRadius: BorderRadius.circular(10),
         );
-        // ----------------------------------------------------------------------------
+        // ---------------------------------------------------------------------
         final gradientDecoration = BoxDecoration(
           border: Border.all(color: Colors.grey),
           borderRadius: BorderRadius.circular(20),
@@ -80,7 +80,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
             end: Alignment.bottomCenter,
           ),
         );
-        // ----------------------------------------------------------------------------
+        // ---------------------------------------------------------------------
         final BookNowDecoration = BoxDecoration(
           border: Border.all(),
           borderRadius: BorderRadius.only(
@@ -88,22 +88,25 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
               bottomRight: Radius.circular(20)),
           color: Colors.black,
         );
-        // ----------------------------------------------------------------------------
+        // ---------------------------------------------------------------------
         final headingTextStyle = TextStyle(
-            fontFamily: "Lato", fontWeight: FontWeight.bold, fontSize: 18);
-        // ----------------------------------------------------------------------------
+          fontFamily: "Lato",
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+        );
+        // ---------------------------------------------------------------------
         final normTextStyle = TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontFamily: "Lato",
             fontSize: 10);
-        // ----------------------------------------------------------------------------
+        // ---------------------------------------------------------------------
         final smallTextStyle = TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontFamily: "Lato",
             fontSize: 11);
-        // -------------------------------------shorcuts-------------------------------------
+        // -------------------------------------shorcuts------------------------
         return Column(
           children: [
             Container(
@@ -120,6 +123,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                 ],
               ),
             ),
+            // ---------------------------ADS-----------------------------------
             SizedBox(
               height: 150,
               // color: Colors.green,
@@ -137,7 +141,13 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                         height: 100,
                         width: 350,
                         decoration: BoxDecoration(
-                          border: Border.all(),
+                          boxShadow: [
+                            BoxShadow(
+                                spreadRadius: 4,
+                                blurStyle: BlurStyle.outer,
+                                blurRadius: 6,
+                                color: Colors.grey)
+                          ],
                           borderRadius: BorderRadius.all(Radius.circular(5)),
                         ),
                         child: Column(
@@ -158,7 +168,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
               height: 10,
             ),
 
-            //Categories
+            //---------------------------CATEGORIES-----------------------------
             Container(
               margin: EdgeInsets.only(left: 10, right: 10, bottom: 5),
               child: Row(
@@ -256,7 +266,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
               ),
             ),
 
-            // Service Near You
+            // ---------------------------Service Near You----------------------
             Container(
               margin: EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 20),
               child: Row(
