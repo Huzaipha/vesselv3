@@ -39,6 +39,11 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
       fontFamily: "Lato",
       fontSize: 10,
       fontWeight: FontWeight.bold);
+  final locationTextStyle = TextStyle(
+    color: Colors.black,
+    fontFamily: "Lato",
+    fontSize: 8,
+  );
 
   final selectTimeDecoration = BoxDecoration(
       border: Border.all(), borderRadius: BorderRadius.circular(5));
@@ -231,8 +236,8 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
             },
             child: Container(
               margin: EdgeInsets.only(top: 20),
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.06,
+              width: MediaQuery.of(context).size.width * 1.0,
+              height: MediaQuery.of(context).size.height * 0.1,
               decoration: selectTimeDecoration,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -249,11 +254,14 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                           "Location: ",
                           style: otherTextStyle,
                         ),
-                        Text(
-                          locationadress.toString(),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 3,
-                          style: otherTextStyle,
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          child: Text(
+                            locationadress.toString(),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 3,
+                            style: otherTextStyle,
+                          ),
                         ),
                       ],
                     ),
