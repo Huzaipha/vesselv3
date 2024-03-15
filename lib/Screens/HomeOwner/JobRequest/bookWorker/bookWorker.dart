@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_animated_icons/lottiefiles.dart';
 import 'package:lottie/lottie.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
@@ -61,6 +60,10 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
     border: Border.all(),
     borderRadius: BorderRadius.circular(10),
   );
+  // -----------------LOCATION--------------------------------------------------
+  String locationMessage = 'Your Location';
+
+  // -----------------LOCATION--------------------------------------------------
   // -----------------shortcuts-------------------------------------------------
 
   Widget MainBody() {
@@ -170,8 +173,8 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
           decoration: selectTimeDecoration,
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            MaterialButton(
-              onPressed: () async {
+            GestureDetector(
+              onTap: () async {
                 final TimeOfDay? timeOfDay = await showTimePicker(
                     context: context,
                     initialTime: _timeOfDay,
@@ -198,16 +201,17 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                 ),
               ),
             ),
-            VerticalDivider(
-              color: Colors.black,
+            Container(
+              height: MediaQuery.of(context).size.height * 1.0,
+              decoration: BoxDecoration(border: Border.all()),
             ),
             SizedBox(
-                width: MediaQuery.of(context).size.width * 0.35,
+                width: MediaQuery.of(context).size.width * 0.4,
                 height: MediaQuery.of(context).size.height * 0.1,
                 child: Center(
                     child: Text(
                   "${_timeOfDay.hour}:${_timeOfDay.minute}",
-                  style: TextStyletwo,
+                  style: otherTextStyle,
                 )))
           ]),
         )),
@@ -221,8 +225,8 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
           style: TextStyletwo,
         ),
         Center(
-          child: GestureDetector(
-            onTap: () {
+          child: MaterialButton(
+            onPressed: () {
               _showModal(context);
             },
             child: Container(
@@ -231,6 +235,7 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
               height: MediaQuery.of(context).size.height * 0.06,
               decoration: selectTimeDecoration,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     margin: EdgeInsets.all(10),
@@ -245,7 +250,9 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                           style: otherTextStyle,
                         ),
                         Text(
-                          locationadress ?? "Select Your Location",
+                          locationadress.toString(),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
                           style: otherTextStyle,
                         ),
                       ],
@@ -257,6 +264,35 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
           ),
         ),
         // ---------------------------------------------------------------------
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.03,
+        ),
+        Text(
+          "Note",
+          style: TextStyletwo,
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width * 1.0,
+          height: MediaQuery.of(context).size.height * 0.2,
+          decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+          child: TextField(
+            style: TextStyle(fontFamily: "Lato", fontWeight: FontWeight.bold),
+            decoration: InputDecoration(
+              hintText: "Additional Note",
+              hintStyle: TextStyle(
+                color: Colors.grey,
+                fontFamily: "Lato",
+                fontSize: 14,
+              ),
+            ),
+            expands: true,
+            maxLines: null,
+          ),
+        ),
+        // ---------------------------------------------------------------------
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.1,
+        ),
       ]),
     );
   }
@@ -304,10 +340,6 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
-                                "_______",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
                               Text(
                                 "Are You Sure",
                                 style: TextStyle(
@@ -368,7 +400,7 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                   },
                   child: Container(
                     margin: EdgeInsets.only(right: 30),
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.4,
                     height: MediaQuery.of(context).size.height * 0.05,
                     decoration: BoxDecoration(
                         border: Border.all(),
@@ -434,7 +466,7 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                 print(pickedData.address);
                 Navigator.pop(context);
                 setState(() {
-                  locationadress = pickedData.address as String;
+                  locationadress = pickedData.address.toString();
                 });
                 // Handle picked data
               },

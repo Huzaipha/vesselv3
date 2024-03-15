@@ -14,14 +14,15 @@ class WorkerJob extends StatefulWidget {
 class _WorkerJobState extends State<WorkerJob> {
 
   String? _offerDiscount;
-
+// -----------------------shortcuts---------------------------------------------
   final myTextStyles =
       TextStyle(fontFamily: "Lato", fontWeight: FontWeight.bold, fontSize: 14);
   final hintTextStyles =
-      TextStyle(color: Colors.grey, fontFamily: "Lato", fontSize: 14);
+      TextStyle(color: Colors.grey, fontFamily: "Lato", fontSize: 10);
 
   final myTextStyleslow =
       TextStyle(color: Colors.grey, fontFamily: "Lato", fontSize: 8);
+// -----------------------shortcuts---------------------------------------------
 
   Widget upperPart() {
     return Column(

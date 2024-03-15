@@ -15,7 +15,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
       color: Colors.white,
       border: Border.all(color: Colors.white),
       borderRadius: BorderRadius.circular(5));
- // -----------------------------------------------------------
+  // -----------------------------------------------------------
   final decorationText = TextStyle(
     fontWeight: FontWeight.bold,
     fontFamily: "Lato",
@@ -157,7 +157,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
           //Discount
 
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            margin: EdgeInsets.only(top: 20, bottom: 20),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.transparent),
               borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -177,7 +177,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            padding: EdgeInsets.all(20),
+                            padding: EdgeInsets.only(left: 5),
                             child: Text(
                               "Get a membership!",
                               style: TextStyle(
@@ -186,7 +186,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
                           ),
                           Container(
                             padding: EdgeInsets.only(
-                              left: 20,
+                              left: 5,
                             ),
                             child: Text(
                               "Enjoy a special introductionary discount of 50% off \nyour first order!",
@@ -200,7 +200,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
                         ],
                       ),
                       Container(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.only(top: 10),
                         child: Icon(
                           Icons.discount_outlined,
                           size: 80,

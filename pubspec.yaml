@@ -40,7 +40,6 @@ dependencies:
   flutter_animated_icons: ^1.0.1
   lottie: any
   open_street_map_search_and_pick: any
-  kotlin_flavor: ^0.2.0
 
 dev_dependencies:
   flutter_test:

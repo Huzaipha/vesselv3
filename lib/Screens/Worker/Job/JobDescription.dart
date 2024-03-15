@@ -14,11 +14,15 @@ class _jobDescriptionState extends State<jobDescription> {
   String? _LanguageUrdu;
   String? _LanguageEnglish;
   String? _LanguagePunjabi;
-
+// -----------------------shortcuts---------------------------------------------
   final hintTextStyles =
-      TextStyle(color: Colors.grey, fontFamily: "Lato", fontSize: 14);
+      TextStyle(color: Colors.grey, fontFamily: "Lato", fontSize: 10);
   final myTextStyles =
+      TextStyle(fontFamily: "Lato", fontWeight: FontWeight.bold, fontSize: 08);
+  final HeadingTextStyles =
       TextStyle(fontFamily: "Lato", fontWeight: FontWeight.bold, fontSize: 14);
+
+// -----------------------shortcuts---------------------------------------------
 
   Widget upperPart() {
     return Column(
@@ -93,7 +97,7 @@ class _jobDescriptionState extends State<jobDescription> {
             children: [
               Text(
                 "Add Service",
-                style: myTextStyles,
+                style: HeadingTextStyles,
               )
             ],
           ),
@@ -227,7 +231,7 @@ class _jobDescriptionState extends State<jobDescription> {
           ),
           Text(
             "Write Description",
-            style: myTextStyles,
+            style: HeadingTextStyles,
           ),
           Container(
             width: MediaQuery.of(context).size.width * 1.0,
@@ -252,9 +256,10 @@ class _jobDescriptionState extends State<jobDescription> {
           ),
           Text(
             "Languages Spoken",
-            style: myTextStyles,
+            style: HeadingTextStyles,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
                 onDoubleTap: () {
@@ -269,7 +274,7 @@ class _jobDescriptionState extends State<jobDescription> {
                 },
                 child: Container(
                   height: 40,
-                  width: MediaQuery.of(context).size.width * 0.25,
+                  width: MediaQuery.of(context).size.width * 0.2,
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey),
@@ -299,7 +304,7 @@ class _jobDescriptionState extends State<jobDescription> {
                 },
                 child: Container(
                   height: 40,
-                  width: MediaQuery.of(context).size.width * 0.25,
+                  width: MediaQuery.of(context).size.width * 0.2,
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey),
@@ -329,7 +334,7 @@ class _jobDescriptionState extends State<jobDescription> {
                 },
                 child: Container(
                   height: 40,
-                  width: MediaQuery.of(context).size.width * 0.25,
+                  width: MediaQuery.of(context).size.width * 0.2,
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey),

@@ -200,10 +200,6 @@ class _ServiceRequestState extends State<ServiceRequest>
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                "_______",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              Text(
                                 "Are You Sure",
                                 style: TextStyle(
                                     color: Colors.black,

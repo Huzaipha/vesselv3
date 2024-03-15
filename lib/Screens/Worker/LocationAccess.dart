@@ -16,14 +16,14 @@ class _LocationAccessState extends State<LocationAccess> {
   final lowTextStyle = TextStyle(
     color: Colors.grey,
     fontFamily: "Lato",
-    fontSize: 12,
+    fontSize: 8,
     fontWeight: FontWeight.bold,
   );
   // -----------------------------------------------------------------------
   final highTextStyle = TextStyle(
     color: Colors.grey[900],
     fontFamily: "Lato",
-    fontSize: 22,
+    fontSize: 16,
     fontWeight: FontWeight.bold,
   );
   // -------------------------shortcuts---------------------------------------------
@@ -31,7 +31,7 @@ class _LocationAccessState extends State<LocationAccess> {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 60),
+          margin: EdgeInsets.only(top: 60, left: 10, right: 10),
           child: Column(
             children: [
               Image.asset(
