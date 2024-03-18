@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animated_icons/lottiefiles.dart';
 import 'package:lottie/lottie.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+import 'package:vesselv3/Screens/HomeOwner/JobRequest/bookWorker/PaymentMode.dart';
+import 'package:vesselv3/routes/route.dart';
 
 class bookWorker extends StatefulWidget {
   const bookWorker({super.key});
@@ -65,10 +67,7 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
     border: Border.all(),
     borderRadius: BorderRadius.circular(10),
   );
-  // -----------------LOCATION--------------------------------------------------
-  String locationMessage = 'Your Location';
 
-  // -----------------LOCATION--------------------------------------------------
   // -----------------shortcuts-------------------------------------------------
 
   Widget MainBody() {
@@ -251,15 +250,15 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                           width: MediaQuery.of(context).size.width * 0.005,
                         ),
                         Text(
-                          "Location: ",
+                          "Location:  ",
                           style: otherTextStyle,
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width * 0.7,
+                          width: MediaQuery.of(context).size.width * 0.5,
                           child: Text(
                             locationadress.toString(),
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
+                            maxLines: 2,
                             style: otherTextStyle,
                           ),
                         ),
@@ -376,7 +375,9 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                               ),
                               MaterialButton(
                                 onPressed: () {
-                                  _showModal(context);
+                                  PageRouting.goToNextPage(
+                                      context: context,
+                                      navigateTo: paymentMode());
                                 },
                                 child: Container(
                                   height: MediaQuery.of(context).size.height *
@@ -390,7 +391,7 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                                   ),
                                   child: Center(
                                     child: Text(
-                                      "Continue",
+                                      "Pay Now",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: "Lato",
