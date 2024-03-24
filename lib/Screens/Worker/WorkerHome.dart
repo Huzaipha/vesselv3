@@ -5,7 +5,6 @@ import 'package:vesselv3/Screens/Worker/Job/PostJob.dart';
 import 'package:vesselv3/Screens/Worker/LocationAccess.dart';
 import 'package:vesselv3/Screens/Worker/ServiceRequest.dart';
 import 'package:vesselv3/Screens/Worker/WorkerProfile.dart';
-import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 import 'package:vesselv3/routes/route.dart';
 
 class WorkerHomePage extends StatefulWidget {

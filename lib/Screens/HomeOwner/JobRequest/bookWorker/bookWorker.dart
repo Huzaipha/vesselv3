@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_icons/lottiefiles.dart';
 import 'package:lottie/lottie.dart';
-import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 import 'package:vesselv3/Screens/HomeOwner/JobRequest/bookWorker/PaymentMode.dart';
+import 'package:vesselv3/Screens/Maps/getCurrentLocation.dart';
 import 'package:vesselv3/routes/route.dart';
 
 class bookWorker extends StatefulWidget {
@@ -231,7 +231,8 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
         Center(
           child: MaterialButton(
             onPressed: () {
-              _showModal(context);
+              PageRouting.goToNextPage(
+                  context: context, navigateTo: GetCurrentLocationScreen());
             },
             child: Container(
               margin: EdgeInsets.only(top: 20),
@@ -459,30 +460,4 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
   }
 
 // ----------------------Location Method----------------------------------------
-  void _showModal(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (context) {
-        return SizedBox(
-          height: null,
-          child: Center(
-            child: OpenStreetMapSearchAndPick(
-              // center: LatLong(23, 89),
-              buttonColor: Colors.blue,
-              buttonText: 'Set Current Location',
-              onPicked: (pickedData) {
-                print(pickedData.address);
-                Navigator.pop(context);
-                setState(() {
-                  locationadress = pickedData.address.toString();
-                });
-                // Handle picked data
-              },
-            ),
-          ),
-        );
-      },
-    );
-  }
 }

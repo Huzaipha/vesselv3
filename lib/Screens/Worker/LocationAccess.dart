@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, file_names, non_constant_identifier_names, depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
-import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+import 'package:vesselv3/Screens/Maps/getCurrentLocation.dart';
+import 'package:vesselv3/routes/route.dart';
 
 class LocationAccess extends StatefulWidget {
   const LocationAccess({super.key});
@@ -48,11 +49,8 @@ class _LocationAccessState extends State<LocationAccess> {
               ),
               MaterialButton(
                 onPressed: () {
-                  try {
-                    _showModal(context);
-                  } catch (e) {
-                    print('Exception occurred: $e');
-                  }
+                  PageRouting.goToNextPage(
+                      context: context, navigateTo: GetCurrentLocationScreen());
                 },
                 child: Container(
                   margin: EdgeInsets.only(top: 20, bottom: 10),
@@ -128,32 +126,6 @@ class _LocationAccessState extends State<LocationAccess> {
           ],
         ),
       )),
-    );
-  }
-
-  void _showModal(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (context) {
-        return SizedBox(
-          height: null,
-          child: Center(
-            child: OpenStreetMapSearchAndPick(
-              // center: LatLong(23, 89),
-              buttonColor: Colors.blue,
-              buttonText: 'Set Current Location',
-              onPicked: (pickedData) {
-                Navigator.pop(context);
-                setState(() {
-                  locationadress = pickedData.address as String;
-                });
-                // Handle picked data
-              },
-            ),
-          ),
-        );
-      },
     );
   }
 }
