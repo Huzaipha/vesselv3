@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vesselv3/SVG/svg.dart';
 import 'package:vesselv3/Screens/IntroScreens/TypeScreen.dart';
-import 'package:vesselv3/Widgets/textfield.dart';
 import 'package:vesselv3/routes/route.dart';
 
 class EnterPhoneNumber extends StatefulWidget {
@@ -56,7 +55,7 @@ class _EnterPhoneNumberState extends State<EnterPhoneNumber> {
             ),
             Container(
               child: Text(
-                "Please Enter Your Valid mobile number.",
+                "Please Enter Your Valid Email Address.",
                 style: TextStyle(
                   color: Colors.grey,
                   fontFamily: "Lato",
@@ -72,9 +71,19 @@ class _EnterPhoneNumberState extends State<EnterPhoneNumber> {
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: Colors.black),
               ),
-              child: MyTextFromField(
-                hintText: '+92 3015923669',
-                obscureText: false,
+              child: TextField(
+                style: TextStyle(
+                  fontFamily: "Lato",
+                  fontSize: 10,
+                ),
+                decoration: InputDecoration(
+                  hintText: "anyone@example.com",
+                  hintStyle: TextStyle(
+                      color: Colors.grey, fontFamily: "Lato", fontSize: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                  ),
+                ),
               ),
             ),
             Container(

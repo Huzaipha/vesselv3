@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_declarations, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:vesselv3/Screens/Worker/Job/JobDescription.dart';
 import 'package:vesselv3/routes/route.dart';
 
@@ -12,7 +13,7 @@ class WorkerJob extends StatefulWidget {
 }
 
 class _WorkerJobState extends State<WorkerJob> {
-
+  TextEditingController priceController = TextEditingController();
   String? _offerDiscount;
 // -----------------------shortcuts---------------------------------------------
   final myTextStyles =
@@ -209,40 +210,13 @@ class _WorkerJobState extends State<WorkerJob> {
                     top: 10,
                   ),
                   child: TextField(
-                    style: TextStyle(fontFamily: "Lato"),
+                    controller: priceController,
+                    style: TextStyle(
+                      fontFamily: "Lato",
+                      fontSize: 10,
+                    ),
                     decoration: InputDecoration(
                       hintText: "300",
-                      hintStyle: hintTextStyles,
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 15,
-              ),
-              Text("to"),
-              SizedBox(
-                width: 15,
-              ),
-              Container(
-                height: 40,
-                width: 80,
-                padding: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Container(
-                  margin: EdgeInsets.only(
-                    top: 10,
-                  ),
-                  child: TextField(
-                    style: TextStyle(fontFamily: "Lato"),
-                    decoration: InputDecoration(
-                      hintText: "9999",
                       hintStyle: hintTextStyles,
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
@@ -381,24 +355,6 @@ class _WorkerJobState extends State<WorkerJob> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.35,
-                child: MaterialButton(
-                  onPressed: () {},
-                  color: Colors.white,
-                  textColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Text(
-                    "Back",
-                    style: myTextStyles,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 2,
-              ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.35,
                 child: MaterialButton(

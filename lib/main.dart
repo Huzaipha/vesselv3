@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:vesselv3/Screens/HomeOwner/JobRequest/bookWorker/PaymentMode.dart';
+import 'package:vesselv3/Screens/IntroScreens/EnterEmail.dart';
 import 'package:vesselv3/Screens/IntroScreens/TypeScreen.dart';
 import 'package:vesselv3/Screens/IntroScreens/splashScreen.dart';
 import 'package:vesselv3/Screens/HomeOwner/Selection/CategorySelection.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ChooseType(),
+      home: EnterPhoneNumber(),
     );
   }
 }

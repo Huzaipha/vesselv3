@@ -64,20 +64,6 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
     //For Home
     Column(
       children: [
-        Container(
-          margin: EdgeInsets.only(left: 10, right: 10),
-          height: 50,
-          decoration: BoxDecoration(
-            border: Border.all(),
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Search"),
-            ],
-          ),
-        ),
         // ----------------------------------ADS--------------------------------
         SizedBox(
           height: 150,

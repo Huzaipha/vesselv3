@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, unused_import, use_key_in_widget_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:vesselv3/Screens/HomeOwner/Selection/CategorySelection.dart';
 import 'package:vesselv3/Screens/HomeOwner/Selection/WorkerSelection.dart';
 import 'package:vesselv3/Screens/HomeOwner/Services/SeeAllServices.dart';
@@ -109,20 +108,6 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
         // -------------------------------------shorcuts------------------------
         return Column(
           children: [
-            Container(
-              margin: EdgeInsets.only(left: 10, right: 10),
-              height: 50,
-              decoration: BoxDecoration(
-                border: Border.all(),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Search"),
-                ],
-              ),
-            ),
             // ---------------------------ADS-----------------------------------
             SizedBox(
               height: 150,
