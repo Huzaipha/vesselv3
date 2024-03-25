@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_final_fields, prefer_const_declarations, prefer_interpolation_to_compose_strings, avoid_print
+// ignore_for_file: prefer_interpolation_to_compose_strings, prefer_const_constructors, prefer_const_declarations, prefer_final_fields
 
 import 'dart:async';
 
@@ -7,7 +7,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class GetCurrentLocationScreen extends StatefulWidget {
-  const GetCurrentLocationScreen({super.key});
+  const GetCurrentLocationScreen({Key? key}) : super(key: key);
 
   @override
   State<GetCurrentLocationScreen> createState() =>
@@ -21,7 +21,6 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
     zoom: 14,
   );
   List<Marker> _marker = [
-    // adding random Markers
     Marker(
       markerId: MarkerId('1'),
       position: LatLng(33.7281138, 72.8263736),
@@ -61,6 +60,7 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
             },
+            onTap: _addMarker,
             initialCameraPosition: _kGooglePlex,
             markers: Set<Marker>.of(_marker),
             myLocationButtonEnabled: true,
@@ -75,7 +75,6 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
             print(value.latitude.toString() + " " + value.longitude.toString());
             _marker.add(Marker(
                 markerId: MarkerId('3'),
-                // Getting Current Location
                 position: LatLng(value.latitude, value.longitude),
                 infoWindow: InfoWindow(title: 'Your Location')));
             CameraPosition cameraPosition = CameraPosition(
@@ -92,5 +91,17 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
         child: Icon(Icons.room),
       ),
     );
+  }
+
+  void _addMarker(LatLng position) {
+    setState(() {
+      _marker.add(
+        Marker(
+          markerId: MarkerId(position.toString()),
+          position: position,
+          infoWindow: InfoWindow(title: 'Tapped Location'),
+        ),
+      );
+    });
   }
 }
