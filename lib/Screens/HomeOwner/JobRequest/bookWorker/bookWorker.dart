@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_icons/lottiefiles.dart';
+import 'package:flutter_geocoder/geocoder.dart';
 import 'package:lottie/lottie.dart';
 import 'package:vesselv3/Screens/HomeOwner/JobRequest/bookWorker/PaymentMode.dart';
 import 'package:vesselv3/Screens/Maps/getCurrentLocation.dart';
@@ -31,7 +32,6 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  String? locationadress = "Select Your Location";
   TimeOfDay _timeOfDay = TimeOfDay.now();
 
   String? _carpenter;
@@ -69,6 +69,7 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
   );
 
   // -----------------shortcuts-------------------------------------------------
+  String Youraddress = 'Your Current Location';
 
   Widget MainBody() {
     return Container(
@@ -230,9 +231,25 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
         ),
         Center(
           child: MaterialButton(
-            onPressed: () {
-              PageRouting.goToNextPage(
-                  context: context, navigateTo: GetCurrentLocationScreen());
+            onPressed: () async {
+              final query = "Wah, Quaid Avenue, Wah Cantt ";
+              var addresses =
+                  await Geocoder.local.findAddressesFromQuery(query);
+              var second = addresses.first;
+              print("${second.featureName} : ${second.coordinates}");
+
+              final coordinates = new Coordinates(33.7832, 72.7231);
+              var address = await Geocoder.local
+                  .findAddressesFromCoordinates(coordinates);
+              var first = address.first;
+
+              print("The Address is: " +
+                  first.featureName.toString() +
+                  first.addressLine.toString());
+
+              setState(() {
+                Youraddress = first.addressLine.toString();
+              });
             },
             child: Container(
               margin: EdgeInsets.only(top: 20),
@@ -257,7 +274,7 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
                         Container(
                           width: MediaQuery.of(context).size.width * 0.5,
                           child: Text(
-                            locationadress.toString(),
+                            Youraddress,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                             style: otherTextStyle,
@@ -458,6 +475,4 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
       ),
     );
   }
-
-// ----------------------Location Method----------------------------------------
 }

@@ -21,12 +21,16 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
     zoom: 14,
   );
   List<Marker> _marker = [
-
     // adding random Markers
     Marker(
       markerId: MarkerId('1'),
       position: LatLng(33.7281138, 72.8263736),
-      infoWindow: InfoWindow(title: 'Huzaifas Location'),
+      infoWindow: InfoWindow(title: "Huzaifa's Location"),
+    ),
+    Marker(
+      markerId: MarkerId('2'),
+      position: LatLng(33.7832, 72.7231),
+      infoWindow: InfoWindow(title: "Haroon's Location"),
     ),
   ];
 
@@ -40,15 +44,28 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "M A P S",
+          style: TextStyle(
+            fontFamily: "Lato",
+            fontSize: 14,
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: SafeArea(
-        child: GoogleMap(
-          onMapCreated: (GoogleMapController controller) {
-            _controller.complete(controller);
-          },
-          initialCameraPosition: _kGooglePlex,
-          markers: Set<Marker>.of(_marker),
-          myLocationButtonEnabled: true,
-          compassEnabled: true,
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height * 0.7,
+          child: GoogleMap(
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+            },
+            initialCameraPosition: _kGooglePlex,
+            markers: Set<Marker>.of(_marker),
+            myLocationButtonEnabled: true,
+            compassEnabled: true,
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -57,12 +74,14 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
             print('my current location');
             print(value.latitude.toString() + " " + value.longitude.toString());
             _marker.add(Marker(
-                markerId: MarkerId('2'),
+                markerId: MarkerId('3'),
                 // Getting Current Location
                 position: LatLng(value.latitude, value.longitude),
-                infoWindow: InfoWindow(title: 'Current Location')));
+                infoWindow: InfoWindow(title: 'Your Location')));
             CameraPosition cameraPosition = CameraPosition(
-                zoom: 14, target: LatLng(value.latitude, value.longitude));
+              zoom: 14,
+              target: LatLng(value.latitude, value.longitude),
+            );
 
             final GoogleMapController controller = await _controller.future;
             controller
