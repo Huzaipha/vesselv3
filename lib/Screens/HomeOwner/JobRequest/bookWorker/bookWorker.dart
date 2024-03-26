@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_icons/lottiefiles.dart';
 import 'package:flutter_geocoder/geocoder.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:lottie/lottie.dart';
 import 'package:vesselv3/Screens/HomeOwner/JobRequest/bookWorker/PaymentMode.dart';
 import 'package:vesselv3/routes/route.dart';
@@ -231,24 +232,21 @@ class _bookWorkerState extends State<bookWorker> with TickerProviderStateMixin {
         Center(
           child: MaterialButton(
             onPressed: () async {
-              final query = "Wah, Quaid Avenue, Wah Cantt ";
-              var addresses =
-                  await Geocoder.local.findAddressesFromQuery(query);
-              var second = addresses.first;
-              print("${second.featureName} : ${second.coordinates}");
+              try {
+                Position position = await Geolocator.getCurrentPosition(
+                    desiredAccuracy: LocationAccuracy.high);
+                Coordinates coordinates =
+                    Coordinates(position.latitude, position.longitude);
+                var addresses = await Geocoder.local
+                    .findAddressesFromCoordinates(coordinates);
+                var first = addresses.first;
 
-              final coordinates = new Coordinates(33.7832, 72.7231);
-              var address = await Geocoder.local
-                  .findAddressesFromCoordinates(coordinates);
-              var first = address.first;
-
-              print("The Address is: " +
-                  first.featureName.toString() +
-                  first.addressLine.toString());
-
-              setState(() {
-                Youraddress = first.addressLine.toString();
-              });
+                setState(() {
+                  Youraddress = first.addressLine.toString();
+                });
+              } catch (e) {
+                print("Error: $e");
+              }
             },
             child: Container(
               margin: EdgeInsets.only(top: 20),

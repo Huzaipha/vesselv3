@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_interpolation_to_compose_strings, prefer_const_constructors, prefer_const_declarations, prefer_final_fields
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -16,11 +14,12 @@ class GetCurrentLocationScreen extends StatefulWidget {
 
 class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
   final Completer<GoogleMapController> _controller = Completer();
-  static final CameraPosition _kGooglePlex = const CameraPosition(
+  static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(33.7281138, 72.8263736),
     zoom: 14,
   );
-  List<Marker> _marker = [
+
+  Set<Marker> _markers = {
     Marker(
       markerId: MarkerId('1'),
       position: LatLng(33.7281138, 72.8263736),
@@ -31,7 +30,7 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
       position: LatLng(33.7832, 72.7231),
       infoWindow: InfoWindow(title: "Haroon's Location"),
     ),
-  ];
+  };
 
   Future<Position> getUserCurrentLocation() async {
     await Geolocator.requestPermission().then((value) {
@@ -62,7 +61,7 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
             },
             onTap: _addMarker,
             initialCameraPosition: _kGooglePlex,
-            markers: Set<Marker>.of(_marker),
+            markers: _markers,
             myLocationButtonEnabled: true,
             compassEnabled: true,
           ),
@@ -73,10 +72,15 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
           getUserCurrentLocation().then((value) async {
             print('my current location');
             print(value.latitude.toString() + " " + value.longitude.toString());
-            _marker.add(Marker(
-                markerId: MarkerId('3'),
-                position: LatLng(value.latitude, value.longitude),
-                infoWindow: InfoWindow(title: 'Your Location')));
+            setState(() {
+              _markers.add(
+                Marker(
+                  markerId: MarkerId('3'),
+                  position: LatLng(value.latitude, value.longitude),
+                  infoWindow: InfoWindow(title: 'Your Location'),
+                ),
+              );
+            });
             CameraPosition cameraPosition = CameraPosition(
               zoom: 14,
               target: LatLng(value.latitude, value.longitude),
@@ -85,7 +89,6 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
             final GoogleMapController controller = await _controller.future;
             controller
                 .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
-            setState(() {});
           });
         },
         child: Icon(Icons.room),
@@ -95,11 +98,11 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
 
   void _addMarker(LatLng position) {
     setState(() {
-      _marker.add(
+      _markers.add(
         Marker(
           markerId: MarkerId(position.toString()),
           position: position,
-          infoWindow: InfoWindow(title: 'Tapped Location'),
+          infoWindow: InfoWindow(title: 'Go to This Location'),
         ),
       );
     });
