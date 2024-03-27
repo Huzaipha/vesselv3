@@ -200,9 +200,14 @@ class _EnterPhoneNumberState extends State<EnterPhoneNumber> {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
-          child: Column(
+          child: ListView(
+        physics: BouncingScrollPhysics(),
         children: [
-          Mainbody(),
+          Column(
+            children: [
+              Mainbody(),
+            ],
+          ),
         ],
       )),
     );

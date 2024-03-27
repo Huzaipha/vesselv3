@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -19,18 +21,7 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
     zoom: 14,
   );
 
-  Set<Marker> _markers = {
-    Marker(
-      markerId: MarkerId('1'),
-      position: LatLng(33.7281138, 72.8263736),
-      infoWindow: InfoWindow(title: "Huzaifa's Location"),
-    ),
-    Marker(
-      markerId: MarkerId('2'),
-      position: LatLng(33.7832, 72.7231),
-      infoWindow: InfoWindow(title: "Haroon's Location"),
-    ),
-  };
+  Set<Marker> _markers = {};
 
   Future<Position> getUserCurrentLocation() async {
     await Geolocator.requestPermission().then((value) {
@@ -67,31 +58,54 @@ class _GetCurrentLocationScreenState extends State<GetCurrentLocationScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          getUserCurrentLocation().then((value) async {
-            print('my current location');
-            print(value.latitude.toString() + " " + value.longitude.toString());
-            setState(() {
-              _markers.add(
-                Marker(
-                  markerId: MarkerId('3'),
-                  position: LatLng(value.latitude, value.longitude),
-                  infoWindow: InfoWindow(title: 'Your Location'),
-                ),
-              );
-            });
-            CameraPosition cameraPosition = CameraPosition(
-              zoom: 14,
-              target: LatLng(value.latitude, value.longitude),
-            );
+      floatingActionButton: Container(
+        margin: EdgeInsets.only(bottom: 180, left: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: () async {
+                getUserCurrentLocation().then((value) async {
+                  print('my current location');
+                  print(value.latitude.toString() +
+                      " " +
+                      value.longitude.toString());
+                  setState(() {
+                    _markers.add(
+                      Marker(
+                        markerId: MarkerId('3'),
+                        position: LatLng(value.latitude, value.longitude),
+                        infoWindow: InfoWindow(title: 'Your Location'),
+                      ),
+                    );
+                  });
+                  CameraPosition cameraPosition = CameraPosition(
+                    zoom: 14,
+                    target: LatLng(value.latitude, value.longitude),
+                  );
 
-            final GoogleMapController controller = await _controller.future;
-            controller
-                .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
-          });
-        },
-        child: Icon(Icons.room),
+                  final GoogleMapController controller =
+                      await _controller.future;
+                  controller.animateCamera(
+                      CameraUpdate.newCameraPosition(cameraPosition));
+                });
+              },
+              child: Icon(Icons.room),
+            ),
+            SizedBox(width: 16),
+            FloatingActionButton(
+              onPressed: () {
+                if (_markers.isNotEmpty) {
+                  setState(() {
+                    _markers.remove(_markers.last);
+                  });
+                }
+              },
+              child: Icon(Icons.undo),
+            ),
+          ],
+        ),
       ),
     );
   }
