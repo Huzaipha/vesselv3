@@ -42,6 +42,7 @@ dependencies:
   google_maps_flutter: ^2.2.8
   flutter_geocoder: ^0.2.2-nullsafety
   geolocator: ^11.0.0
+  pay: ^2.0.0
 
 
 dev_dependencies:
